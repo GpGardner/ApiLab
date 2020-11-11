@@ -31,7 +31,7 @@ public class UserController {
 	
 	//New endpoint to get users and allows a query parametere for state 
 	//otherwise to call original method
-	@GetMapping("/user")
+	@GetMapping("/users")
 	public List<User> getUsers(@RequestParam(value="state", required=false) String state){
         if (state != null) {
             return (List<User>) userRepository.findAllByState(state);
@@ -40,26 +40,26 @@ public class UserController {
 	}
 	
 	//create a new user in the database
-	@PostMapping(value="/user")
+	@PostMapping(value="/users")
 	public void createUser(@RequestBody User user) {
 		userRepository.save(user);
 	}
 	
 	//update a specific users information /user/{there specific id}
-	@PutMapping("/user/{id}")
+	@PutMapping("/users/{id}")
 	public void createUser(@PathVariable(value="id") Long id, @RequestBody User user){
 	    userRepository.save(user);
 	}
 	
 	//delete a specific user
-	@DeleteMapping("/user/{id}")
+	@DeleteMapping("/users/{id}")
 	public void createUser(@PathVariable(value="id") Long id) {
 		userRepository.deleteById(id);
 	}
 	
 	//Add an endpoint to get a single user by id\
 	//method has to return `Optional<User>`, meaning that the result might be null
-	@GetMapping(value="/user/{id}")
+	@GetMapping(value="/users/{id}")
 	public Optional<User> getUserById(@PathVariable(value="id") long id) {
 		return userRepository.findById(id);
 	}

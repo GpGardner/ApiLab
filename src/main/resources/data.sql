@@ -1,4 +1,4 @@
-INSERT INTO USER (ID, FIRST_NAME, LAST_NAME, STATE) VALUES
+MERGE INTO USER (ID, FIRST_NAME, LAST_NAME, STATE) VALUES
     (1, 'James', 'Garner', 'Ohio'),
     (2, 'Craig', 'Steger', 'Florida'),
     (3, 'Bruce', 'Campbell', 'Illinois'),
